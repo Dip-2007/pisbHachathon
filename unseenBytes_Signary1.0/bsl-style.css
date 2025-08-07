@@ -1,0 +1,338 @@
+/* General Body & Font Styles */
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #374151; /* Dark Gray */
+    background-color: #f9fafb; /* Light Gray */
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* --- Page Header (Blue Theme) --- */
+.page-header {
+    position: relative;
+    padding: 4rem 1rem;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .page-header {
+        padding: 6rem 2rem;
+        text-align: left;
+    }
+}
+
+.page-header.blue-gradient {
+    background: linear-gradient(45deg, rgba(71, 206, 255, 0.85), rgb(0, 98, 255));
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.back-link:hover {
+    color: rgb(0, 0, 0);
+    transform: translateX(-4px);
+}
+
+.back-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+.language-page-header {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .language-page-header {
+        margin: 0;
+    }
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 768px) {
+    .page-title {
+        font-size: 3.5rem;
+    }
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    opacity: 0.9;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.page-description {
+    font-size: 1.125rem;
+    opacity: 0.95;
+    margin: 1.5rem 0 2.5rem;
+    max-width: 40rem;
+}
+
+/* --- Main Content & Layout --- */
+.main-content {
+    padding: 3rem 0;
+    background-color: #f9fafb;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        padding: 4rem 0;
+    }
+}
+
+.course-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .course-layout {
+        grid-template-columns: 2.5fr 1fr;
+    }
+}
+
+/* --- Lessons List (Blue Theme) --- */
+.lessons-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+}
+
+.lessons-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.lessons-count {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+}
+
+.lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.lesson-card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07);
+    border-color: #2563eb; /* Blue */
+}
+
+.lesson-content {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.lesson-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+.lesson-number {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+h3.lesson-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.25rem 0;
+}
+
+.lesson-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.level-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.play-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #EFF6FF; /* Light Blue */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.lesson-card:hover .play-btn {
+    background-color: #2563eb; /* Blue */
+    color: white;
+}
+
+/* --- Sidebar --- */
+.sidebar .card {
+    background: white;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.card-text {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quick-link {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: block;
+}
+
+.quick-link:hover {
+    transform: translateX(4px);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background: #e5e7eb;
+    border-radius: 99px;
+    height: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-fill { height: 100%; }
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 0.75rem;
+}
+
+/* --- General Button and Color Styles --- */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.white-bg {
+    background: white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.blue-text { color: #2563eb; }
+.blue-bg { background-color: #2563eb; }
+
+.level-badge.beginner { background-color: #dcfce7; color: #166534; }
+.level-badge.intermediate { background-color: #fef3c7; color: #92400e; }
+.level-badge.advanced { background-color: #fee2e2; color: #991b1b; }
+
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISL Quiz - Introduction</title>
+    <link rel="stylesheet" href="isl-quiz-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="quiz-container" id="quiz-container">
+      <header class="quiz-header">
+        <a href="index.html" class="back-link">← Back to Lessons</a>
+        <div class="hud">
+          <div class="hud-item" id="hud-xp">
+            <span class="hud-label">XP</span>
+            <span class="hud-value" id="xp-text">0</span>
+          </div>
+          <div class="hud-item" id="hud-hearts">
+            <span class="hud-label">Hearts</span>
+            <span class="hud-value" id="hearts-text">❤️❤️❤️</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <main class="quiz-main" id="quiz-main">
+        <div class="question-image-container" id="question-image-container">
+          <img src="" alt="Sign language gesture" id="question-image" />
+        </div>
+        <h2 id="question-text">Question text goes here...</h2>
+        <div class="answer-options" id="answer-options"></div>
+        <button class="next-btn" id="next-btn" style="display: none">
+          Next
+        </button>
+      </main>
+
+      <div class="score-container" id="score-container" style="display: none">
+        <h2 id="score-title">Quiz Complete!</h2>
+        <p>You scored</p>
+        <p class="final-score" id="final-score">0</p>
+        <p class="final-xp">Total XP Earned</p>
+        <div class="score-buttons">
+          <button class="retry-btn" id="retry-btn">Try Again</button>
+          <a href="index.html" class="back-to-home-btn">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback-overlay" id="feedback-overlay">
+      <div class="feedback-content">
+        <h2 id="feedback-title"></h2>
+        <p id="feedback-text"></p>
+      </div>
+    </div>
+
+    <script src="isl-quiz-.js"></script>
+  </body>
+</html>
