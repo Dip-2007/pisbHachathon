@@ -227,7 +227,7 @@ header {
 }
 
 .hero-description {
-    font-size: 1.125rem; /* Adjusted for smaller screens */
+    font-size: 1.25rem; /* Adjusted for smaller screens */
     margin: 1.5rem auto 2.5rem;
     max-width: 48rem;
     color: rgba(0, 0, 0, 0.9);
@@ -235,7 +235,7 @@ header {
 
 @media (min-width: 768px) {
     .hero-description {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         font-weight:700;
         color:rgb(31, 31, 31);
 
