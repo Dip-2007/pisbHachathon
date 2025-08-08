@@ -146,13 +146,14 @@ body {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2,1fr);
     gap: 2.5rem;
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
     padding: 0 1rem;
-    align-items: stretch;
+    justify-content:center;;
+    align-items: stretch;
 }
 
 .team-card {

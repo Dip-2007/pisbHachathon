@@ -351,8 +351,10 @@ header {
 
 .module-card-image {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 260px;
+    /* object-fit: cover; */
+    background-size:cover;
+
 }
 
 .module-content {
