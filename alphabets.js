@@ -38,9 +38,7 @@ const alphabetDescriptions = {
 };
 
 // A placeholder for missing images
-const placeholder =
-  "https://placehold.co/400x400/f0f0f0/999999?text=Image+Needed";
-
+const placeholder = "https://iili.io/FsRSTCP.gif";
 
 const signImages = {
   ASL: {
@@ -49,7 +47,6 @@ const signImages = {
     C: "https://iili.io/Fi4TrCB.jpg",
     D: "https://iili.io/Fi4T4EP.jpg",
     E: "https://iili.io/Fi4T641.jpg",
-   
   },
   BSL: {
     A: "https://iili.io/Fi4GIcv.jpg ",
