@@ -88,11 +88,29 @@ function initializeAlphabetsPage() {
   setupAlphabetNavigation();
   setupNextLetterButton();
   setupPracticeButtons();
+  setupReadAloud();
   updateDisplay(); // Initial display update
   setInterval(autoSaveProgress, 30000); // Auto-save every 30 seconds
 }
 
-// --- UI SETUP & EVENT LISTENERS ---
+//Integrated For read Aloud
+
+// function setupReadAloud() {
+//   const readAloudButton = document.getElementById("read-aloud-btn");
+//   if (!readAloudButton) return;
+
+//   readAloudButton.addEventListener("click", () => {
+//     const letterToSpeak = currentLetter;
+//     if (letterToSpeak && "speechSynthesis" in window) {
+//       const utterance = new SpeechSynthesisUtterance(letterToSpeak);
+//       window.speechSynthesis.speak(utterance);
+//     } else {
+//       alert("Sorry your browsers doesnt support read Aloud Feature");
+//     }
+//   });
+// }
+
+// UI SETUP & EVENT LISTENERS
 
 function generateAlphabetGrid() {
   const grid = document.getElementById("alphabet-grid");
@@ -106,7 +124,15 @@ function generateAlphabetGrid() {
     if (letter === currentLetter) {
       button.classList.add("active");
     }
-    button.addEventListener("click", () => selectLetter(letter));
+    button.addEventListener("click", () => {
+      selectLetter(letter);
+
+      if ("speechSynthesis" in window) {
+        const utterance = new SpeechSynthesisUtterance(letter);
+
+        window.speechSynthesis.speak(utterance);
+      }
+    });
     grid.appendChild(button);
   });
 }

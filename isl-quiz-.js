@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackTitle = document.getElementById("feedback-title");
   const feedbackText = document.getElementById("feedback-text");
 
-  // --- QUIZ DATA ---
-  // You can add more questions and real image links here
+   
   const questions = [
     {
       image: "https://iili.io/FimiwRS.jpg",
