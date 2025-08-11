@@ -24,7 +24,13 @@ body {
 }
 
 .reels-page {
+    display: flex;
+    justify-content: centre;
+    align-items: center;
   height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
@@ -36,6 +42,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
   animation: fadeIn 0.8s ease forwards;
 }
 
