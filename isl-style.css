@@ -36,7 +36,7 @@ body {
 }
 
 .page-header.orange-gradient {
-    background: linear-gradient(45deg, rgb(255, 206, 99), rgb(255, 108, 3));
+    background: linear-gradient(45deg, rgb(255, 206, 99), rgb(3, 137, 255));
 }
 
 .back-link {
