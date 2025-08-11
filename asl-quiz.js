@@ -19,21 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const questions = [
     {
       question: "What is the ASL sign for the letter 'A'?",
-      image: "images/asl-a.jpg",
+      image: "https://iili.io/FQ8yrOl.jpg",
       options: ["Letter A", "Letter B", "Letter C", "Letter D"],
       answer: 0,
       feedback: "The ASL 'A' is shown with a closed fist and thumb to the side."
     },
     {
       question: "What is the ASL sign for the number '5'?",
-      image: "images/asl-5.jpg",
+      image: "https://iili.io/FQ8N3KJ.png",
       options: ["Number 5", "Number 2", "Number 7", "Number 9"],
       answer: 0,
       feedback: "The ASL '5' is shown with all fingers spread out, palm forward."
     },
     {
       question: "Which sign means 'Hello' in ASL?",
-      image: "images/asl-hello.jpg",
+      image: "https://iili.io/FQS2Z9s.jpg",
       options: ["Hello", "Goodbye", "Thank you", "Sorry"],
       answer: 0,
       feedback: "A flat hand moves outward from the forehead to say 'Hello'."

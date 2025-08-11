@@ -18,28 +18,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Questions for BSL quiz
   const questions = [
     {
-      image: "https://i.ibb.co/kBGnTSQ/bsl-hello.jpg",
+      image: "https://iili.io/FQ8aLej.webp",
       question: "In BSL, which gesture is commonly used for 'Hello'?",
       options: ["Wave hand near head", "Touch chin", "Tap shoulder", "Thumbs up"],
       answer: "Wave hand near head",
       feedback: "A friendly wave near the head is a common greeting in BSL."
     },
     {
-      image: "https://i.ibb.co/XtPgYrP/bsl-alphabet.jpg",
+      image: "https://iili.io/FQ8NHoF.png",
       question: "BSL fingerspelling uses:",
       options: ["One hand", "Two hands", "Both depending on context", "No hands"],
       answer: "Two hands",
       feedback: "BSL uses a two-handed alphabet for fingerspelling."
     },
     {
-      image: "https://i.ibb.co/VW4rJv9/bsl-good-morning.jpg",
+      image: "https://iili.io/FQ8NdPa.jpg",
       question: "Which of these is a common greeting in BSL?",
       options: ["Good morning", "Good night", "See you later", "All of the above"],
       answer: "All of the above",
       feedback: "BSL includes signs for all these everyday greetings."
     },
     {
-      image: "https://i.ibb.co/S3Hp3W9/bsl-numbers.jpg",
+      image: "https://iili.io/FQ8N3KJ.png",
       question: "How is '5' shown in BSL numbers?",
       options: ["Open hand, palm forward", "Closed fist", "Thumb and four fingers together", "Index and middle finger up"],
       answer: "Open hand, palm forward",
