@@ -247,6 +247,7 @@ h3.lesson-title {
     border-radius: 0.75rem;
     border: 1px solid #e5e7eb;
     margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
     padding: 1.5rem;
 }
 
@@ -302,6 +303,11 @@ h3.lesson-title {
     font-size: 0.9rem;
     color: #6b7280;
     margin-top: 0.75rem;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    flex-direction: column;
+  }
 }
 
 /* --- General Button and Color Styles --- */
