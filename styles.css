@@ -1023,9 +1023,9 @@ header {
 
 .reels-section {
   padding: 2rem;
-  background: linear-gradient(135deg, #000000, #000000);
+  background: linear-gradient(45deg, #000000, #3b39398c);
   color: white;
-  border-radius: 15px;
+  
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
@@ -1089,3 +1089,7 @@ header {
 .view-more:hover {
   background: #f0f0f0;
 }
+
+
+/* made it responsive */
+
