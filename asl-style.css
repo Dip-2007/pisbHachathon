@@ -337,3 +337,54 @@ h3.lesson-title {
     width: 1.25rem;
     height: 1.25rem;
 }
+
+
+/* for dark mode ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* --- Dark Mode Styles --- */
+.dark-mode body {
+    background-color: #111827;
+    color: #d1d5db;
+}
+.dark-mode .page-header.red-gradient { background: linear-gradient(45deg, rgba(159, 28, 28, 0.8), rgba(220, 38, 38, 0.7)); }
+.dark-mode .page-header.blue-gradient { background: linear-gradient(45deg, rgba(30, 64, 175, 0.8), rgba(37, 99, 235, 0.7)); }
+.dark-mode .page-header.orange-gradient { background: linear-gradient(45deg, rgba(194, 65, 12, 0.8), rgba(234, 88, 12, 0.7)); }
+
+.dark-mode .main-content {
+    background-color: #1f2937;
+}
+.dark-mode .lessons-title {
+    color: #f9fafb;
+}
+.dark-mode .lessons-count {
+    background-color: #374151;
+    color: #d1d5db;
+}
+.dark-mode .lesson-card {
+    background: #374151;
+    border-color: #4b5563;
+    box-shadow: none;
+}
+.dark-mode .lesson-card:hover {
+    border-color: var(--primary-color, #dc2626); /* Fallback to red */
+}
+.dark-mode h3.lesson-title {
+    color: #f9fafb;
+}
+.dark-mode .lesson-meta {
+    color: #9ca3af;
+}
+.dark-mode .sidebar .card {
+    background: #374151;
+    border-color: #4b5563;
+}
+.dark-mode .card-title {
+    color: #f9fafb;
+    border-bottom-color: #4b5563;
+}
+.dark-mode .card-text, .dark-mode .progress-text {
+    color: #9ca3af;
+}
+.dark-mode .level-badge.beginner { background-color: #064e3b; color: #a7f3d0; }
+.dark-mode .level-badge.intermediate { background-color: #78350f; color: #fde68a; }
+.dark-mode .level-badge.advanced { background-color: #7f1d1d; color: #fecaca; }

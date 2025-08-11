@@ -93,22 +93,23 @@ function initializeAlphabetsPage() {
   setInterval(autoSaveProgress, 30000); // Auto-save every 30 seconds
 }
 
-//Integrated For read Aloud
+// Integrated For read Aloud
 
-// function setupReadAloud() {
-//   const readAloudButton = document.getElementById("read-aloud-btn");
-//   if (!readAloudButton) return;
+function setupReadAloud() {
+  const readAloudButton = document.getElementById("read-aloud-btn");
+  if (!readAloudButton) return;
 
-//   readAloudButton.addEventListener("click", () => {
-//     const letterToSpeak = currentLetter;
-//     if (letterToSpeak && "speechSynthesis" in window) {
-//       const utterance = new SpeechSynthesisUtterance(letterToSpeak);
-//       window.speechSynthesis.speak(utterance);
-//     } else {
-//       alert("Sorry your browsers doesnt support read Aloud Feature");
-//     }
-//   });
-// }
+  readAloudButton.addEventListener("click", () => {
+    const letterToSpeak = currentLetter;
+    if (letterToSpeak && "speechSynthesis" in window) {
+      const utterance = new SpeechSynthesisUtterance(letterToSpeak);
+      utterance.lang = "en-US";
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Sorry your browsers doesnt support read Aloud Feature");
+    }
+  });
+}
 
 // UI SETUP & EVENT LISTENERS
 

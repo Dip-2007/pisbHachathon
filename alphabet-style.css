@@ -416,3 +416,75 @@ body {
 .btn-secondary:hover {
   background-color: #e5e7eb;
 }
+
+
+/* for the dark mode of alphabet pg +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* --- Dark Mode Styles --- */
+.dark-mode {
+    background-color: #111827;
+    color: #d1d5db;
+}
+.dark-mode .page-header.green-gradient {
+    background: linear-gradient(90deg, rgba(16, 99, 45, 0.85), rgba(21, 128, 61, 0.7));
+}
+.dark-mode .language-selector {
+    background-color: #1f2937;
+    border-bottom-color: #374151;
+}
+.dark-mode .language-btn {
+    background-color: #374151;
+    color: #d1d5db;
+}
+.dark-mode .language-btn:hover {
+    background-color: #4b5563;
+}
+.dark-mode .language-btn.active {
+    color: white;
+    background-color: var(--primary-color);
+}
+.dark-mode .alphabet-title {
+    color: #f9fafb;
+}
+.dark-mode .letter-btn {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #d1d5db;
+}
+.dark-mode .letter-btn:hover {
+    background-color: #4b5563;
+    border-color: #6b7280;
+}
+.dark-mode .letter-display.card {
+    background-color: #1f2937;
+    border-color: #374151;
+}
+.dark-mode .current-letter {
+    background-color: #37415120; /* Transparent version of primary color light */
+}
+.dark-mode .hand-description, .dark-mode .hand-description span {
+    color: #9ca3af;
+}
+.dark-mode .letter-description {
+    background-color: #111827;
+    border-color: #374151;
+}
+.dark-mode .card {
+    background: #1f2937;
+    border-color: #374151;
+}
+.dark-mode .card-title {
+    color: #f9fafb;
+    border-bottom-color: #374151;
+}
+.dark-mode .progress-header, .dark-mode .tip-item p {
+    color: #9ca3af;
+}
+.dark-mode .practice-btn {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #d1d5db;
+}
+.dark-mode .practice-btn:hover {
+    background-color: #4b5563;
+}

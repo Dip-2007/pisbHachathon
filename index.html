@@ -20,12 +20,13 @@
         <a href="index.html" class="logo"></a>
 
         <div class="nav-links">
-          <a href="index.html">Home</a> 
+          <a href="index.html">Home</a>
           <a href="alphabets.html">Alphabets</a>
           <a href="asl.html">ASL</a>
           <a href="bsl.html">BSL</a>
           <a href="isl.html">ISL</a>
           <a href="about.html">About Us</a>
+          <button id="theme-toggle-btn" class="theme-toggle">Dark Mode</button>
         </div>
       </nav>
 
@@ -36,6 +37,11 @@
         <a href="bsl.html">BSL</a>
         <a href="isl.html">ISL</a>
         <a href="about.html">About Us</a>
+        <a href="#" id="mobile-theme-toggle-link"
+          ><button id="theme-toggle-btn-mobile" class="theme-toggle">
+            Dark Mode
+          </button></a
+        >
       </div>
     </header>
 
@@ -341,5 +347,7 @@
           document.querySelector(".mobile-nav-links").classList.toggle("show");
         });
     </script>
+
+    <script src="dark-mode.js"></script>
   </body>
 </html>
