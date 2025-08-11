@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add(currentTheme);
     // If dark mode is active, reflect it in the button text
     if (currentTheme === "dark-mode") {
-      themeToggleButton.textContent = "Light Mode";
+      themeToggleButton.textContent = "☀️";
     }
   }
 
