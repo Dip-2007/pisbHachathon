@@ -15,24 +15,18 @@ body {
     line-height: 1.6;
     color: #374151; /* Dark Gray */
     background-color: #f9fafb; /* Light Gray */
-    overflow-x: hidden; /* Prevents horizontal scroll & white borders */
+    overflow-x: hidden; /* Prevents horizontal scroll */
 }
 
-header {
-    position: relative; /* Anchor for the mobile menu */
-    z-index: 1000;
-}
-
-/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-
 /* --- Enhanced Navigation Bar --- */
 header {
+    /* CLEANUP: This is the main sticky container */
     position: sticky;
     top: 0;
     background-color: #fff;
@@ -41,7 +35,7 @@ header {
 }
 
 .nav-bar {
-    position:fixed;
+    /* CLEANUP: Removed redundant/conflicting position properties. Flexbox handles the layout. */
     width: 100%;
     height: 60px;
     background-color: #17313E;
@@ -49,30 +43,24 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
 }
 
 .logo {
     background-image: url("https://i.ibb.co/zV24976M/Whats-App-Image-2025-08-07-at-16-59-30-3b3be9a2.jpg");
-    border-radius:18px;
-    border:white;
-    
-
-    
-
+    border-radius: 18px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     height: 30px;
     width: 100px;
-    border:1px solid #d06c35;
-    
-
+    border: 1px solid #d06c35;
 }
-    /* Move logo towards the center on mobile by removing left margin */
-  */
+
+.nav-right-cluster {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Gap between nav links and theme toggle */
+}
 
 .nav-links {
     display: flex;
@@ -80,11 +68,10 @@ header {
     gap: 1.5rem;
 }
 
-
 .nav-links a {
     font-size: 1rem;
     font-weight: 600;
-    color:#D06C35; /* Medium Gray */
+    color: #D06C35;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -93,48 +80,63 @@ header {
 }
 
 .nav-links a:hover {
-    color: #1D4ED8; /* Blue */
-    background-color: #EFF6FF; /* Light Blue */
+    color: #1D4ED8;
+    background-color: #EFF6FF;
 }
 
-.nav-links a.active:hover {
-    color: #D06C35;
+.nav-links a.active {
+    color: #1D4ED8;
     font-weight: 700;
-    color:#1D4ED8;
+}
+
+/* --- Theme Toggle Button --- */
+.theme-toggle {
+    background-color: #ffffff;
+    font-size: large;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- Mobile Menu Styles --- */
 .mobile-menu-icon {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden on desktop */
     font-size: 28px;
     cursor: pointer;
     color: #ffffff;
+    z-index: 10001; /* Ensure it's above the sliding menu */
 }
 
 .mobile-nav-links {
-    display: none; /* Hidden by default */
+    display: flex; /* Changed from none to flex to allow transform to work */
     flex-direction: column;
-    background:linear-gradient(45deg,#ffffff00,#4B5563) ; 
-    position: absolute;
-    top: 60px; /* Position below the navbar */
+    background: linear-gradient(45deg, #17313e6b, #474f5ceb);
+    position: fixed; /* Fixed position to cover the whole screen */
+    top: 0;
     left: 0;
     width: 80%;
-    height: 2000%;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-    z-index: 9999; /* Below the header but above other content */
-    transform: translatex(-100%); /* Start off-screen */
-    transition: transform 0.5s ease;
-    
+    /* RESPONSIVE FIX: Use 100vh for full viewport height */
+    height: 100vh;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    transform: translateX(-100%); /* Start off-screen */
+    transition: transform 0.5s ease-in-out;
+    padding-top: 80px; /* Space for the top bar */
 }
 
 .mobile-nav-links.show {
-    display: flex; /* Show the menu */
-    transform: translatex(0); /* Slide into view */
+    transform: translateX(0); /* Slide into view */
 }
 
 .mobile-nav-links a {
     text-align: left;
-    padding: 1rem;
+    padding: 1rem 2rem;
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
@@ -147,35 +149,41 @@ header {
 
 .mobile-nav-links a:hover {
     background-color: #d1bfa3;
+    color: #17313E;
 }
 
-
-/* --- Responsive Media Query --- */
+/* --- Responsive Media Query for Navigation --- */
 @media (max-width: 768px) {
     .nav-links {
         display: none; /* Hide desktop links */
     }
 
+    /* RESPONSIVE FIX: Show the theme toggle button next to the hamburger icon */
     .mobile-menu-icon {
         display: block; /* Show hamburger icon */
     }
-
+    
     .nav-bar {
-        padding: 1rem; /* Adjust padding for mobile */
+        padding: 1rem;
+    }
+    
+    .logo {
+        position: absolute; /* Take logo out of flex flow to center it */
+        left: 50%;
+        transform: translateX(-50%); /* Center the logo perfectly */
     }
 
-    .logo {
-        position: absolute; /* Take logo out of flex flow */
-        left: 50%;
-        transform: translateX(-50%); /* Center the logo */
+    .nav-right-cluster {
+        /* On mobile, this cluster will just hold the theme toggle, pushed to the right */
+        margin-left: auto; /* Push to the far right */
+        gap: 0;
     }
 }
-
 
 /* --- Enhanced Hero Section --- */
 .hero-section {
     position: relative;
-    padding: 8rem 0;
+    padding: 6rem 0; /* Reduced padding for mobile */
     text-align: center;
     overflow: hidden;
     color: white;
@@ -210,39 +218,25 @@ header {
 }
 
 .hero-title {
-    font-size: 3rem; /* Adjusted for smaller screens */
+    font-size: 2.5rem; /* Adjusted for smaller screens */
     font-weight: 900;
     line-height: 1.1;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 3.75rem;
-    }
-}
-
 .hero-subtitle {
     display: block;
     font-weight: 900;
-    color: #FBBF24; /* Amber */
-    padding:1rem;
+    color: #FBBF24;
+    padding: 1rem;
 }
 
 .hero-description {
-    font-size: 1.25rem; /* Adjusted for smaller screens */
+    font-size: 1.125rem;
     margin: 1.5rem auto 2.5rem;
     max-width: 48rem;
     color: rgba(0, 0, 0, 0.9);
-}
-
-@media (min-width: 768px) {
-    .hero-description {
-        font-size: 1.125rem;
-        font-weight:700;
-        color:rgb(31, 31, 31);
-
-    }
+    font-weight: 500;
 }
 
 .btn-primary {
@@ -250,8 +244,8 @@ header {
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 2.5rem;
-    background: #FBBF24; /* Amber */
-    color: #1E293B; /* Dark Blue-Gray */
+    background: #FBBF24;
+    color: #1E293B;
     font-size: 1.125rem;
     font-weight: 700;
     text-decoration: none;
@@ -277,61 +271,35 @@ header {
     transform: translateX(5px);
 }
 
-
 /* --- Enhanced Learning Modules --- */
 .modules-section {
-    padding: 4rem 0; /* Adjusted for smaller screens */
-    background-color:white;
-    
-
-}
-
-@media (min-width: 768px) {
-    .modules-section {
-        padding: 6rem 0;
-    }
+    padding: 4rem 0;
+    background-color: white;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 3rem; /* Adjusted for smaller screens */
-}
-
-@media (min-width: 768px) {
-    .section-header {
-        margin-bottom: 4rem;
-    }
+    margin-bottom: 3rem;
 }
 
 .section-title {
-    font-size: 2rem; /* Adjusted for smaller screens */
+    font-size: 2rem;
     font-weight: 800;
-    color: #111827; /* Very Dark Gray */
+    color: #111827;
     margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-    .section-title {
-        font-size: 2.5rem;
-    }
-}
-
 .section-description {
-    font-size: 1rem; /* Adjusted for smaller screens */
-    color: #6B7280; /* Gray */
+    font-size: 1rem;
+    color: #6B7280;
     max-width: 40rem;
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    .section-description {
-        font-size: 1.125rem;
-    }
-}
-
+/* This is perfectly responsive, no changes needed */
 .modules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -354,10 +322,9 @@ header {
 
 .module-card-image {
     width: 100%;
-    height: 260px;
-    /* object-fit: cover; */
-    background-size:cover;
-
+    height: 200px; /* Adjusted height for better consistency */
+    background-size: cover;
+    background-position: center;
 }
 
 .module-content {
@@ -368,16 +335,10 @@ header {
 }
 
 .module-title {
-    font-size: 1.25rem; /* Adjusted for smaller screens */
+    font-size: 1.375rem;
     font-weight: 700;
     color: #1E293B;
     margin-bottom: 0.5rem;
-}
-
-@media (min-width: 768px) {
-    .module-title {
-        font-size: 1.375rem;
-    }
 }
 
 .module-description {
@@ -393,47 +354,31 @@ header {
     color: #1D4ED8;
     font-weight: 600;
     text-decoration: none;
-    margin-top: auto;
+    margin-top: auto; /* Pushes CTA to the bottom of the card */
 }
 
 .module-card:hover .module-cta .arrow-icon {
     transform: translateX(4px);
 }
 
-
 /* --- Enhanced CTA Section --- */
 .cta-section {
-    background:linear-gradient(45deg, rgb(30, 58, 138),rgb(59,130,246));
+    background: linear-gradient(45deg, rgb(30, 58, 138), rgb(59, 130, 246));
     color: white;
-    padding: 4rem 0; /* Adjusted for smaller screens */
+    padding: 4rem 2rem; /* Consistent padding on mobile */
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .cta-section {
-        padding: 6rem 0;
-    }
-}
-
 .cta-title {
-    font-size: 2rem; /* Adjusted for smaller screens */
+    font-size: 2rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-.cta-title:hover{
-    
-   
-
-    color:#fbba24;
-   
+    transition: color 0.3s ease;
 }
 
-@media (min-width: 768px) {
-    .cta-title {
-        font-size: 2.5rem;
-
-    }
+.cta-title:hover {
+    color: #fbba24;
 }
 
 .cta-button {
@@ -441,21 +386,15 @@ header {
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 2.5rem;
-    font-size: 1rem; /* Adjusted for smaller screens */
+    font-size: 1.125rem;
     font-weight: 700;
     text-decoration: none;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
     background: white;
-    color: #1E3A8A; /* Dark Blue */
+    color: #1E3A8A;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 768px) {
-    .cta-button {
-        font-size: 1.125rem;
-    }
 }
 
 .cta-button:hover {
@@ -464,27 +403,21 @@ header {
     color: #1E293B;
 }
 
-
 /* --- Enhanced Footer --- */
 .footer {
-    background-color: #131A22; /* Very Dark Blue-Gray */
-    color: #D1D5DB; /* Light Gray */
+    background-color: #131A22;
+    color: #D1D5DB;
     padding: 4rem 2rem;
 }
 
+/* This is perfectly responsive, no changes needed */
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     text-align: center;
-}
-
-@media (min-width: 768px) {
-    .footer-container {
-        text-align: left;
-    }
 }
 
 .footer-column h3 {
@@ -505,7 +438,7 @@ header {
 }
 
 .footer-column a {
-    color: #9CA3AF; /* Gray */
+    color: #9CA3AF;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -514,7 +447,7 @@ header {
 }
 
 .footer-column a:hover {
-    color: #FBBF24; /* Amber */
+    color: #FBBF24;
 }
 
 .footer-column .social-icon {
@@ -525,7 +458,7 @@ header {
 .footer-bottom {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #374151; /* Dark Gray */
+    border-top: 1px solid #374151;
     text-align: center;
 }
 
@@ -535,59 +468,9 @@ header {
     color: #9CA3AF;
 }
 
-.footer-bottom a {
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Of course. Here is a complete CSS file, asl-styles.css, that is fully themed to match your index.html page. It includes all the necessary styles for the new elements on your ASL page and is fully responsive. */
-
-/* -----
-
-### asl-styles.css */
-
-/* ```css */
-/* General Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter';
-    line-height: 1.6;
-    color: #374151; /* Dark Gray */
-    background-color: #f9fafb; /* Light Gray */
-    overflow-x: hidden; /* Prevents horizontal scroll */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
+/* ---
+--- ASL PAGE STYLES
+--- */
 
 /* --- Page Header for Language Modules --- */
 .page-header {
@@ -596,13 +479,6 @@ body {
     color: white;
     overflow: hidden;
     text-align: center;
-}
-
-@media (min-width: 768px) {
-    .page-header {
-        padding: 8rem 2rem;
-        text-align: left;
-    }
 }
 
 .page-header::before {
@@ -649,28 +525,11 @@ body {
     margin-right: 0.5rem;
 }
 
-.language-page-header {
-    max-width: 48rem;
-    margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-    .language-page-header {
-        margin: 0;
-    }
-}
-
 .page-title {
     font-size: 2.5rem;
     font-weight: 900;
     line-height: 1.1;
     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-@media (min-width: 768px) {
-    .page-title {
-        font-size: 3rem;
-    }
 }
 
 .page-subtitle {
@@ -681,23 +540,10 @@ body {
     margin-top: 0.5rem;
 }
 
-@media (min-width: 768px) {
-    .page-subtitle {
-        font-size: 1.5rem;
-    }
-}
-
 .page-description {
     font-size: 1rem;
     opacity: 0.95;
-    margin: 1.5rem 0 2rem;
-    max-width: 40rem;
-}
-
-@media (min-width: 768px) {
-    .page-description {
-        font-size: 1.125rem;
-    }
+    margin: 1.5rem 0 0;
 }
 
 /* --- Main Content & Layout --- */
@@ -710,12 +556,6 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-}
-
-@media (min-width: 1024px) {
-    .course-layout {
-        grid-template-columns: 2.5fr 1fr;
-    }
 }
 
 /* --- Enhanced Lessons List --- */
@@ -765,12 +605,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .lesson-info {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex-grow: 1; /* Allow info to take available space */
+    min-width: 0; /* Prevent overflow on flex items */
 }
 
 .lesson-number {
@@ -786,11 +629,20 @@ body {
     flex-shrink: 0;
 }
 
+.lesson-title-meta {
+    flex-grow: 1;
+    min-width: 0;
+}
+
 .lesson-title {
     font-size: 1.125rem;
     font-weight: 600;
     color: #111827;
     margin-bottom: 0.25rem;
+    /* Prevent long titles from breaking layout */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .lesson-meta {
@@ -813,17 +665,18 @@ body {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 50%;
-    background: #FEF2F2; /* Light Red */
+    background: #FEF2F2;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
 }
 
 .play-btn:hover {
-    background-color: #dc2626; /* Red */
+    background-color: #dc2626;
     color: white;
 }
 
@@ -831,7 +684,6 @@ body {
     width: 1.5rem;
     height: 1.5rem;
 }
-
 
 /* --- Enhanced Sidebar --- */
 .sidebar .card {
@@ -868,7 +720,7 @@ body {
 }
 
 .quick-link {
-    color: #B91C1C; /* Darker Red */
+    color: #B91C1C;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
@@ -919,157 +771,107 @@ body {
 }
 
 /* General Button and Color Styles */
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 2rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.15);
-}
-
-.white-bg {
-    background: white;
-}
-
-.red-text {
-    color: #dc2626;
-}
-
-.red-bg {
-    background: #dc2626;
-}
-
-.level-badge.beginner {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.level-badge.intermediate {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.level-badge.advanced {
-    background: #fecaca;
-    color: #991b1b;
-}
-
-.icon {
-    width: 1.25rem;
-    height: 1.25rem;
-}
+.white-bg { background: white; }
+.red-text { color: #dc2626; }
+.red-bg { background: #dc2626; }
+.level-badge.beginner { background: #dcfce7; color: #166534; }
+.level-badge.intermediate { background: #fef3c7; color: #92400e; }
+.level-badge.advanced { background: #fecaca; color: #991b1b; }
+.icon { width: 1.25rem; height: 1.25rem; }
 
 
-
-/* for dark mode button */
-
-/* --- Dark Mode Styles --- */
+/* ---
+--- DARK MODE STYLES
+--- */
 .dark-mode {
-  background-color: #111827; /* Very Dark Blue */
-  color: #d1d5db; /* Light Gray */
+    background-color: #111827;
+    color: #d1d5db;
 }
 
-/* Navigation */
+.dark-mode header {
+    background-color: #1f2937;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
 .dark-mode .nav-bar {
-  background-color: #1f2937; /* Darker Gray */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #1f2937;
 }
 
 .dark-mode .nav-links a {
-  color: #f59e0b; /* Amber */
+    color: #f59e0b;
 }
 
 .dark-mode .nav-links a:hover {
-  color: #ffffff;
-  background-color: #374151; /* Medium Gray */
+    color: #ffffff;
+    background-color: #374151;
 }
 
 .dark-mode .mobile-menu-icon {
-  color: #f59e0b;
+    color: #f59e0b;
 }
 
 .dark-mode .mobile-nav-links {
-  background: linear-gradient(45deg, #1f2937e0, #111827);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #1f2937e0, #111827);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .dark-mode .mobile-nav-links a {
-  color: #d1d5db;
-  border-bottom: 1px solid #374151;
+    color: #d1d5db;
+    border-bottom-color: #374151;
 }
 
 .dark-mode .mobile-nav-links a:hover {
-  background-color: #4b5563;
+    background-color: #4b5563;
 }
 
-/* Hero Section */
+.dark-mode .theme-toggle {
+    background-color: #374151;
+    color: #f59e0b;
+    border-color: #4b5563;
+}
+
 .dark-mode .hero-section::after {
-  background: linear-gradient(
-    45deg,
-    rgba(17, 24, 39, 0.85),
-    rgba(31, 41, 55, 0.75)
-  );
+    background: linear-gradient(45deg, rgba(17, 24, 39, 0.85), rgba(31, 41, 55, 0.75));
 }
 
 .dark-mode .hero-description {
-  color: #e5e7eb;
+    color: #e5e7eb;
 }
 
-/* Modules Section */
 .dark-mode .modules-section {
-  background-color: #111827;
+    background-color: #111827;
 }
 
-.dark-mode .section-title {
-  color: #ffffff;
+.dark-mode .section-title, .dark-mode .module-title {
+    color: #ffffff;
 }
 
-.dark-mode .section-description {
-  color: #9ca3af;
+.dark-mode .section-description, .dark-mode .module-description {
+    color: #9ca3af;
 }
 
 .dark-mode .module-card {
-  background: #1f2937;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: #1f2937;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode .module-card:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.dark-mode .module-title {
-  color: #ffffff;
-}
-
-.dark-mode .module-description {
-  color: #9ca3af;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .dark-mode .module-cta {
-  color: #f59e0b;
+    color: #f59e0b;
 }
 
-/* CTA Section */
 .dark-mode .cta-section {
-  background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
 }
 
-/* Footer */
 .dark-mode .footer {
-  background-color: #000000;
+    background-color: #000000;
 }
 
-/* Page Header (for ASL page) */
+/* ASL Page Dark Mode */
 .dark-mode .page-header.red-gradient::after {
     background: linear-gradient(90deg, rgba(127, 29, 29, 0.85) 0%, rgba(31, 41, 55, 0.7) 100%);
 }
@@ -1086,17 +888,13 @@ body {
     color: #ffffff;
 }
 
-.dark-mode .lessons-count,
-.dark-mode .lesson-meta,
-.dark-mode .progress-header,
-.dark-mode .progress-text {
+.dark-mode .lessons-count, .dark-mode .lesson-meta, .dark-mode .progress-header, .dark-mode .progress-text {
     color: #9ca3af;
 }
 
 .dark-mode .lesson-card {
     background: #1f2937;
     border-color: #374151;
-    box-shadow: none;
 }
 
 .dark-mode .lesson-card:hover {
@@ -1122,12 +920,8 @@ body {
     border-color: #374151;
 }
 
-.dark-mode .card-title {
+.dark-mode .card-title, .dark-mode .card-text {
     color: #ffffff;
-}
-
-.dark-mode .card-text {
-    color: #9ca3af;
 }
 
 .dark-mode .quick-link {
@@ -1140,4 +934,74 @@ body {
 
 .dark-mode .progress-bar {
     background-color: #374151;
+}
+
+/* ---
+--- MEDIA QUERIES FOR LARGER SCREENS
+--- */
+
+@media (min-width: 768px) {
+    .hero-section {
+        padding: 8rem 0;
+    }
+    .hero-title {
+        font-size: 3.75rem;
+    }
+    .hero-description {
+        font-size: 1.125rem;
+    }
+    .modules-section {
+        padding: 6rem 0;
+    }
+    .section-header {
+        margin-bottom: 4rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .section-description {
+        font-size: 1.125rem;
+    }
+    .cta-section {
+        padding: 6rem 0;
+    }
+    .cta-title {
+        font-size: 2.5rem;
+    }
+    .footer-container {
+        text-align: left;
+    }
+    .page-header {
+        padding: 8rem 2rem;
+        text-align: left;
+    }
+    .page-title {
+        font-size: 3rem;
+    }
+    .page-subtitle {
+        font-size: 1.5rem;
+    }
+    .page-description {
+        font-size: 1.125rem;
+        margin: 1.5rem 0 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-layout {
+        grid-template-columns: 2.5fr 1fr;
+    }
+}
+
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
