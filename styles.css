@@ -107,35 +107,37 @@ header {
     display: none; /* Hidden by default */
     font-size: 28px;
     cursor: pointer;
-    color: #4B5563;
+    color: #ffffff;
 }
 
 .mobile-nav-links {
     display: none; /* Hidden by default */
     flex-direction: column;
-    background-color: #e7d5b9; /* Solid background */
+    background:linear-gradient(45deg,#ffffff00,#4B5563) ; 
     position: absolute;
     top: 60px; /* Position below the navbar */
     left: 0;
-    width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 2000%;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
     z-index: 9999; /* Below the header but above other content */
-    transform: translateY(-100%); /* Start off-screen */
-    transition: transform 0.3s ease-out;
+    transform: translatex(-100%); /* Start off-screen */
+    transition: transform 0.5s ease;
+    
 }
 
 .mobile-nav-links.show {
     display: flex; /* Show the menu */
-    transform: translateY(0); /* Slide into view */
+    transform: translatex(0); /* Slide into view */
 }
 
 .mobile-nav-links a {
-    text-align: center;
+    text-align: left;
     padding: 1rem;
     text-decoration: none;
-    color: #4B5563;
+    color: #ffffff;
     font-weight: 600;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .mobile-nav-links a:last-child {
