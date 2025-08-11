@@ -20,12 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.body.classList.contains("dark-mode")) {
       theme = "dark-mode";
       themeToggleButton.textContent = "☀️";
-    } else {
+    } else {///
       themeToggleButton.textContent = "🌙";
     }
     localStorage.setItem("theme", theme);
   });
 });
-
-
-

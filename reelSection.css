@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  background: #000;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.reels-page {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.reel {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.reel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.reel.active video {
+  transform: scale(1.02);
+}
+
+.caption {
+  position: absolute;
+  bottom: 12%;
+  left: 5%;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  max-width: 80%;
+  padding: 10px 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  border-radius: 10px;
+  animation: slideUp 0.6s ease forwards;
+  opacity: 0;
+}
+.reel.active .caption {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .caption {
+    font-size: 1.1rem;
+    bottom: 10%;
+  }
+}
