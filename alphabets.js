@@ -141,6 +141,15 @@ function generateAlphabetGrid() {
 
       if ("speechSynthesis" in window) {
         const utterance = new SpeechSynthesisUtterance(letter);
+        if (currentLanguage === "ISL") {
+          utterance.lang = "en-IN";
+        } else if (currentLanguage === "BSL") {
+          utterance.lang = "en-GB";
+        } else if (currentLanguage === "ASL") {
+          utterance.lang = "en-US";
+        } else {
+          utterance.lang = "en-US";
+        }
 
         window.speechSynthesis.speak(utterance);
       }
