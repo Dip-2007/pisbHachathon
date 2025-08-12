@@ -18,33 +18,35 @@ document.addEventListener("DOMContentLoaded", () => {
   // Questions for ASL quiz
   const questions = [
     {
-      question: "What is the ASL sign for the letter 'A'?",
+      question: "In ASl For Which Letter This Sign Is Used",
       image: "https://iili.io/FQ8yrOl.jpg",
       options: ["Letter A", "Letter B", "Letter C", "Letter D"],
       answer: 0,
-      feedback: "The ASL 'A' is shown with a closed fist and thumb to the side."
+      feedback:
+        "The ASL 'A' is shown with a closed fist and thumb to the side.",
     },
     {
       question: "What is the ASL sign for the number '5'?",
       image: "https://iili.io/FQ8N3KJ.png",
       options: ["Number 5", "Number 2", "Number 7", "Number 9"],
       answer: 0,
-      feedback: "The ASL '5' is shown with all fingers spread out, palm forward."
+      feedback:
+        "The ASL '5' is shown with all fingers spread out, palm forward.",
     },
     {
-      question: "Which sign means 'Hello' in ASL?",
+      question: "What This Signs Means...?",
       image: "https://iili.io/FQS2Z9s.jpg",
       options: ["Hello", "Goodbye", "Thank you", "Sorry"],
       answer: 0,
-      feedback: "A flat hand moves outward from the forehead to say 'Hello'."
+      feedback: "A flat hand moves outward from the forehead to say 'Hello'.",
     },
     {
-      question: "Which sign means 'Thank You' in ASL?",
+      question: "Which this Sign Means....?",
       image: "images/asl-thankyou.jpg",
       options: ["Hello", "Please", "Thank you", "Goodnight"],
       answer: 2,
-      feedback: "A flat hand moves from chin outward to say 'Thank You'."
-    }
+      feedback: "A flat hand moves from chin outward to say 'Thank You'.",
+    },
   ];
 
   // Quiz State
@@ -81,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
       answerOptionsContainer.appendChild(button);
     });
 
-    progressBar.style.width = `${((currentQuestionIndex + 1) / questions.length) * 100}%`;
+    progressBar.style.width = `${
+      ((currentQuestionIndex + 1) / questions.length) * 100
+    }%`;
   }
 
   function resetState() {
@@ -110,7 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
       hearts--;
       selectedButton.classList.add("incorrect");
       breakHeartAnimation();
-      showFeedback(false, `The correct answer was: ${currentQuestion.options[correctIndex]}`);
+      showFeedback(
+        false,
+        `The correct answer was: ${currentQuestion.options[correctIndex]}`
+      );
     }
 
     updateHUD();
@@ -132,10 +139,12 @@ document.addEventListener("DOMContentLoaded", () => {
     feedbackText.innerText = text;
     if (isCorrect) {
       feedbackTitle.innerText = "Correct!";
-      feedbackOverlay.querySelector(".feedback-content").className = "feedback-content correct";
+      feedbackOverlay.querySelector(".feedback-content").className =
+        "feedback-content correct";
     } else {
       feedbackTitle.innerText = "Incorrect!";
-      feedbackOverlay.querySelector(".feedback-content").className = "feedback-content incorrect";
+      feedbackOverlay.querySelector(".feedback-content").className =
+        "feedback-content incorrect";
     }
   }
 
@@ -145,7 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateHUD() {
     xpText.innerText = xp;
-    heartsText.innerHTML = HEART_EMOJI.repeat(hearts) + BROKEN_HEART_EMOJI.repeat(3 - hearts);
+    heartsText.innerHTML =
+      HEART_EMOJI.repeat(hearts) + BROKEN_HEART_EMOJI.repeat(3 - hearts);
   }
 
   function breakHeartAnimation() {
@@ -162,7 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
     quizMain.style.display = "none";
     scoreContainer.style.display = "block";
     finalScoreText.innerText = xp;
-    document.getElementById("score-title").innerText = isGameOver ? "Game Over!" : "Quiz Complete!";
+    document.getElementById("score-title").innerText = isGameOver
+      ? "Game Over!"
+      : "Quiz Complete!";
   }
 
   nextBtn.addEventListener("click", handleNextButton);
