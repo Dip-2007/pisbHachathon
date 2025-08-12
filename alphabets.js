@@ -103,7 +103,18 @@ function setupReadAloud() {
     const letterToSpeak = currentLetter;
     if (letterToSpeak && "speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(letterToSpeak);
-      utterance.lang = "en-US";
+      // utterance.lang = "en-US";
+
+      // Set accent based on current language
+      if (currentLanguage === "ISL") {
+        utterance.lang = "en-IN";
+      } else if (currentLanguage === "BSL") {
+        utterance.lang = "en-GB";
+      } else if (currentLanguage === "ASL") {
+        utterance.lang = "en-US";
+      } else {
+        utterance.lang = "en-US";
+      }
       window.speechSynthesis.speak(utterance);
     } else {
       alert("Sorry your browsers doesnt support read Aloud Feature");
