@@ -29,33 +29,31 @@ Vanilla JavaScript (ES6+): For all interactivity, including the alphabet trainer
 
 The project is organized into distinct HTML pages, each with its own corresponding CSS and, where necessary, JavaScript file.
 
-/
 ├── index.html # Main landing page for language selection
 ├── style.css # Styles for the landing page
 ├── main.js # JavaScript for the landing page
-│
-├── about.html # About page with information on the project
+
+├── about.html # About page with project information
 ├── about.css # Styles for the About page
-│
+
 ├── alphabets.html # Interactive alphabet learning module
 ├── alphabet-style.css # Styles for the alphabet page
 ├── alphabets.js # JavaScript logic for the alphabet module
-│
+
 ├── asl.html # Course page for American Sign Language
 ├── asl-style.css # Styles for the ASL page
-│
+
 ├── bsl.html # Course page for British Sign Language
 ├── bsl-style.css # Styles for the BSL page
-│
+
 ├── isl.html # Course page for Indian Sign Language
 ├── isl-style.css # Styles for the ISL page
-│
+
 ├── isl-Quiz.html # Interactive quiz for the ISL module
 ├── isl-quiz-style.css # Styles for the ISL quiz
 ├── isl-quiz.js # JavaScript logic for the ISL quiz
-│
-└── README.md # Project overview (You are here!)
-(Note: File names have been standardized for clarity in this documentation.)
+
+└── README.md # Project documentation
 
 ## Getting Started
 
